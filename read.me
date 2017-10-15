@@ -1,0 +1,31 @@
+1) add a benchmark test
+2) Batch Gradient: divide J() cost function by samples' size, without changing alpha
+3) Stochastic Gradient: change alpha from 0.0001 to 0.0005, cause 1000 (samples' size) is too small
+
+------------------------------------------------
+Closed Form Without Normalization
+MSE:  4.39609786082
+
+------------------------------------------------
+Batch Gradient Without Normalization (divide J() cost function by samples' size, without changing alpha)
+MSE:  4.56864957599
+
+------------------------------------------------
+Stochastic Gradient Without Normalization (change alpha from 0.0001 to 0.0005, cause 1000 (samples' size) is too small)
+MSE:  5.44813731771
+
+------------------------------------------------
+Closed Form With Normalization
+MSE:  4.40454594906
+
+------------------------------------------------
+Batch Gradient With Normalization (divide J() cost function by samples' size, without changing alpha)
+MSE:  4.40217549643
+
+------------------------------------------------
+Stochastic Gradient With Normalization (change alpha from 0.0001 to 0.0005, cause 1000 (samples' size) is too small)
+MSE:  5.62993951644
+
+------------------------------------------------
+Benchmark from sklearn.linear_model.LinearRegression
+MSE:  4.39609786082

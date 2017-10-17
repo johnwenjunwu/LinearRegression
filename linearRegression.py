@@ -3,6 +3,7 @@
 import pandas as pd
 import numpy as np
 import sklearn.linear_model as model
+import sklearn
 
 # Reads the data from CSV files, converts it into Dataframe and returns x and y dataframes
 def getDataframe(filePath):
@@ -15,7 +16,6 @@ def getDataframe(filePath):
 def applyZScore(dataframe):
     normalized_dataframe = dataframe
     ########## Please Fill Missing Lines Here ##########
-
     normalized_dataframe = (normalized_dataframe - normalized_dataframe.mean()) / normalized_dataframe.std()
     return normalized_dataframe
 
@@ -36,11 +36,9 @@ def getBetaBatchGradient(train_x, train_y, alpha):
     beta = np.random.rand(train_x.shape[1])
     ########## Please Fill Missing Lines Here ##########
 
-    # alpha = 10
-    i = 0
     for i in range(10000):
         d = train_x.T.dot(train_x.dot(beta) - train_y) / train_x.shape[0]
-        # coss function should be dependent of samples' size
+        # coss function should be independent of samples' size
         beta -= alpha * d
 
     return beta
@@ -120,11 +118,14 @@ class LinearRegression(object):
         np.savetxt('output/linear-regression-output' + '_' + str(self.beta_type) + '_' + str(self.z_score) + '.txt', self.predicted_y)
         compute_mse(self.predicted_y, self.test_y.values)
 
+
+
 if __name__ == '__main__':
     # Change 1st paramter to 0 for closed form, 1 for batch gradient, 2 for stochastic gradient
     # Add a second paramter with value 1 for z score normalization
 
     # LinearRegression(0).bench()
+    # LinearRegression(0, 1).bench()
 
     print '------------------------------------------------'
     print 'Closed Form Without Normalization'

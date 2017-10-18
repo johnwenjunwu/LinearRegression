@@ -1,6 +1,9 @@
 1) add a benchmark test
-2) Batch Gradient: divide J() cost function by samples' size, without changing alpha
-3) Stochastic Gradient: change alpha from 0.0001 to 0.0005, cause 1000 (samples' size) is too small
+2) Batch Gradient: divide J() cost function by samples' size without changing alpha
+   (I think this makes sense in practice. Otherwise, the cost will change greatly
+   with samples' size)
+3) Stochastic Gradient: change alpha from 0.0001 to 0.0005, cause 1000 (samples' size) is too small,
+   which means we need a big step to train
 
 ------------------------------------------------
 Closed Form Without Normalization
